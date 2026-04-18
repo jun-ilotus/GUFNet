@@ -1,0 +1,131 @@
+# Config format schema number
+format_version: 1
+
+###################
+## Model options
+model_params:
+  model_architecture: "arch_acmf" 
+
+  input_dims: 6 
+  spatial_shape:
+    - 23088
+    - 73472
+    - 880
+  scale_list:
+    - 2
+    - 4
+    - 8
+    - 16
+
+  hiden_size: 64
+  num_classes: 16 
+  backbone_2d: FastSCNN
+  pretrained2d: False
+  fusion_type: "acmf_cmf4" 
+
+###################
+## Dataset options
+dataset_params:
+  training_size: 2220
+  dataset_type: "point_image_dataset_wcs2d3d"
+  Wandb_Project: "GAUFNet_WCS2D3D"
+  pc_dataset_type: "WCS2D3D"
+  collate_type: "collate_fn_default"
+  ignore_label: 0
+  label_mapping: "config/label_mapping/wcs2d3d.yaml"
+
+
+  bottom_crop:
+    - 960
+    - 960
+
+  color_jitter:
+    - 0.4
+    - 0.4
+    - 0.4
+  flip2d: 0.5
+  image_normalizer:
+    - [0.485, 0.456, 0.406]
+    - [0.229, 0.224, 0.225]
+
+
+  max_volume_space:
+    - 1116
+    - 13082
+    - 129
+  min_volume_space:
+    - -4654
+    - -5286
+    - -88
+
+
+  seg_labelweights:
+    - 0
+    - 6641631 # index 1: Shed
+    - 4691059 # index 2: Concretehouse
+    - 8006269 # index 3: Cementroad
+    - 1121052 # index 4: Dirtroad
+    - 2982184 # index 5: Slope
+    - 753654 # index 6: Scarp
+    - 2685192 # index 7: Dam
+    - 22043635 # index 8: Vegetablefield
+    - 24535686 # index 9: Grassland
+    - 2335021 # index 10: Dryland
+    - 28164770 # index 11: Woodland
+    - 14242784 # index 12: Bareland
+    - 24088868 # index 13: Waterline
+    - 4021854 # index 14: Ditch
+    - 6118908 # index 15: Others
+
+  train_data_loader:
+    data_path: ""
+    batch_size: 12
+    shuffle: True
+    num_workers: 8 
+    rotate_aug: True
+    flip_aug: True
+    scale_aug: True
+    transform_aug: True
+    dropout_aug: True
+
+  val_data_loader:
+    data_path: "" 
+    shuffle: False
+    num_workers: 8 
+
+    # normal test
+    batch_size: 12
+    rotate_aug: False
+    flip_aug: False
+    scale_aug: False
+    transform_aug: False
+    dropout_aug: False
+
+###################
+## Train params
+train_params:
+  max_num_epochs: 200
+  learning_rate: 0.18
+  optimizer: SGD 
+  lr_scheduler: CosineAnnealingWarmRestarts 
+  momentum: 0.9
+  nesterov: True
+  weight_decay: 1.0e-4
+
+  lambda_seg2d: 1
+  lambda_xm: 0.05
+  lambda_lovasz: 0.1
+
+
+###################
+## Eval metrics
+eval_metrics:
+  cldice:
+    enabled: true
+    voxel_size: 0.25
+    target_classes:
+      - Ditch
+      - Dam
+      - Slope
+      - Cement Road
+      - Dirt Road
