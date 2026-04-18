@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs / outputs / checkpoints
+logs/
+outputs/
+wandb/
+wandb_logs/
+checkpoints/*.ckpt
+checkpoints/*.pth
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large temporary artifacts
+*.pt
+*.bin
+*.npy
+*.npz
+*.h5
+*.laz
+*.las

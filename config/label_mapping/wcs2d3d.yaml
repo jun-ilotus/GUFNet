@@ -1,0 +1,146 @@
+# 自定义数据集标签映射文件
+# 基于用户提供的15个类别
+
+labels:
+  0 : "undefind"
+  1 : "Shed"             # 棚屋
+  2 : "Concretehouse"    # 居民地
+  3 : "Cementroad"       # 水泥路
+  4 : "Dirtroad"         # 土路 (交通)
+  5 : "Slope"            # 斜坡
+  6 : "Scarp"            # 陡崖
+  7 : "Dam"              # 堤坝 (地貌)
+  8 : "Vegetablefield"   # 菜地
+  9 : "Grassland"        # 草地
+  10: "Dryland"          # 旱地
+  11: "Woodland"         # 林地
+  12: "Bareland"         # 裸地 (植被与土质)
+  13: "Waterline"        # 水线
+  14: "Ditch"            # 沟渠 (水系)
+  15: "Others"           # 其他
+
+color_map: # RGB颜色映射
+  0 : [0, 0, 0]
+  1 : [0, 191, 255]      # Shed: 深天蓝
+  2 : [255, 99, 71]      # Concretehouse: 番茄红
+  3 : [112, 128, 144]    # Cementroad: 石板灰
+  4 : [210, 180, 140]    # Dirtroad: 棕褐色
+  5 : [199, 21, 133]     # Slope: 深粉色
+  6 : [240, 128, 128]    # Scarp: 浅珊瑚色
+  7 : [123, 104, 238]    # Dam: 中紫色
+  8 : [107, 142, 35]     # Vegetablefield: 橄榄绿
+  9 : [173, 255, 47]     # Grassland: 绿色
+  10: [255, 165, 0]      # Dryland: 橙色
+  11: [34, 139, 34]      # Woodland: 森林绿
+  12: [255, 215, 0]      # Bareland: 金色
+  13: [70, 130, 180]     # Waterline: 钢蓝色
+  14: [160, 82, 45]      # Ditch: 马鞍棕色
+  15: [211, 211, 211]    # Others: 浅灰色
+
+content: # as a ratio with the total number of points
+  0: 0
+  1: 0.0436
+  2: 0.0308
+  3: 0.0525
+  4: 0.0074
+  5: 0.0196
+  6: 0.0049
+  7: 0.0176
+  8: 0.1446
+  9: 0.1610
+  10: 0.0153
+  11: 0.1848
+  12: 0.0934
+  13: 0.1580
+  14: 0.0264
+  15: 0.0401
+
+# 学习映射 (如果需要标签重映射)
+learning_map:
+  0 : 0     # ignore -> ignore
+  1 : 1     # Shed
+  2 : 2     # Concretehouse
+  3 : 3     # Cementroad
+  4 : 4     # Dirtroad
+  5 : 5     # Slope
+  6 : 6     # Scarp
+  7 : 7     # Dam
+  8 : 8     # Vegetablefield
+  9 : 9     # Grassland
+  10: 10    # Dryland
+  11: 11    # Woodland
+  12: 12    # Bareland
+  13: 13    # Waterline
+  14: 14    # Ditch
+  15: 15
+
+
+# 逆映射
+learning_map_inv:
+  0 : 0     # ignore -> ignore
+  1 : 1     # Shed
+  2 : 2     # Concretehouse
+  3 : 3     # Cementroad
+  4 : 4     # Dirtroad
+  5 : 5     # Slope
+  6 : 6     # Scarp
+  7 : 7     # Dam
+  8 : 8     # Vegetablefield
+  9 : 9     # Grassland
+  10: 10    # Dryland
+  11: 11    # Woodland
+  12: 12    # Bareland
+  13: 13    # Waterline
+  14: 14    # Ditch
+  15: 15
+
+# 忽略类别设置
+learning_ignore:
+  0: True   # ignore
+  1: False  # Shed
+  2: False  # Concretehouse
+  3: False  # Cementroad
+  4: False  # Dirtroad
+  5: False  # Slope
+  6: False  # Scarp
+  7: False  # Dam
+  8: False  # Vegetablefield
+  9: False  # Grassland
+  10: False # Dryland
+  11: False # Woodland
+  12: False # Bareland
+  13: False # Waterline
+  14: False # Ditch
+  15: False
+
+# 数据集分割 (如果需要)
+split:
+  train:
+    - 0
+    - 1
+    - 2
+  valid:
+    - 3
+    - 4
+    - 5
+  test:
+    - 3
+    - 4
+    - 5
+
+#      0: "undefind"
+#      0: "Shed"             # 棚屋
+#      1: "Concretehouse"    # 居民地
+#      2: "Cementroad"       # 水泥路
+#      3: "Dirtroad"         # 土路 (交通)
+#      4: "Slope"            # 斜坡
+#      5: "Scarp"            # 陡崖
+#      6: "Dam"              # 堤坝 (地貌)
+#      7: "Vegetablefield"   # 菜地
+#      8: "Grassland"        # 草地
+#      9: "Dryland"          # 旱地
+#      10: "Woodland"         # 林地
+#      11: "Bareland"         # 裸地 (植被与土质)
+#      12: "Waterline"        # 水线
+#      13: "Ditch"            # 沟渠 (水系)
+#      14: "Others"           # 其他
