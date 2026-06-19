@@ -42,6 +42,11 @@ Each point-cloud file in `velodyne/` should be a `.pth` sample whose columns are
 stored in the sibling `image/` folder, for example
 `00/velodyne/000000.pth` and `00/image/000000.png`.
 
+The default in-area split uses folders `00`, `01`, and `02` for training and
+folders `03`, `04`, and `05` for validation. The folder-to-area mapping is:
+`00` and `03` correspond to Area 1, `01` and `04` correspond to Area 2, and
+`02` and `05` correspond to Area 3.
+
 ## Environment
 
 ```bash
